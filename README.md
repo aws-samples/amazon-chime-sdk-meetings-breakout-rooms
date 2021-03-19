@@ -1,17 +1,27 @@
-## My Project
+##Deploy
 
-TODO: Fill this README out!
+This demo can be deployed via CDK so you can see how this works in your own AWS Account.
+Prerequisites:
 
-Be sure to:
+* aws-cdk installed (https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) and bootstrapped (https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html)
+* npm installed
+* credentials configured
+    * account credentials
+    * cdk account association: export CDK_DEFAULT_ACCOUNT=<ACCOUNTID>
 
-* Change the title in this README
-* Edit your repository description on GitHub
 
-## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+```
+chmod +x deploy.sh
+./deploy.sh
+```
 
-## License
+This script will complete a series of actions that includes building the CDK deployment and the React App. The CDK consists of two Stacks that are deployed sequentially so that the API Gateway URL that is created in the Backend Stack can be passed to and used in the Frontend. The output from this will include the URL that is hosting the front end app. 
 
-This project is licensed under the Apache-2.0 License.
+##Cleanup
 
+To remove deployed resources:
+
+```
+cdk destroy —all
+```
