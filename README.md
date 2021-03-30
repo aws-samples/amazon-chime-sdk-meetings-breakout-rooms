@@ -1,4 +1,4 @@
-##Deploy
+## Deploy
 
 This demo can be deployed via CDK so you can see how this works in your own AWS Account.
 Prerequisites:
@@ -7,7 +7,7 @@ Prerequisites:
 * npm installed
 * credentials configured
     * account credentials
-    * cdk account association: export CDK_DEFAULT_ACCOUNT=<ACCOUNTID>
+    * cdk account association: `export CDK_DEFAULT_ACCOUNT=<ACCOUNTID>`
 
 
 
@@ -16,12 +16,12 @@ chmod +x deploy.sh
 ./deploy.sh
 ```
 
-This script will complete a series of actions that includes building the CDK deployment and the React App. The CDK consists of two Stacks that are deployed sequentially so that the API Gateway URL that is created in the Backend Stack can be passed to and used in the Frontend. The output from this will include the URL that is hosting the front end app. 
+This script will complete a series of actions that includes building the CDK deployment and the React App. The CDK consists of two Stacks that are deployed sequentially so that the API Gateway URL that is created in the Backend Stack can be passed to and used in the Frontend. The output from this will include the URL that is hosting the front end app.
 
-##Cleanup
+## Cleanup
 
 To remove deployed resources:
 
 ```
-cdk destroy —all
+cdk destroy --all
 ```
