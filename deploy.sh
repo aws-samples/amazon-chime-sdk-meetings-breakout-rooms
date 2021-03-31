@@ -1,7 +1,10 @@
+#!/bin/bash
+
 ## Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 ## SPDX-License-Identifier: Apache-2.0
 
- #!/bin/bash
+set -e
+
 if [ -f "cdk.context.json" ]; then
     echo ""
     echo "INFO: Removing cdk.context.json"
