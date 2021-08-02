@@ -9,6 +9,8 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@reach/menu-button": "^0.12.1",
     "@storybook/addon-knobs": "^6.1.11",
+    "@storybook/addons": "^6.3.6",
+    "@storybook/client-api": "^6.3.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
