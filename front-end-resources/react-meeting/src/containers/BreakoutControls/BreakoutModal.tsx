@@ -49,7 +49,12 @@ const BreakOutForm: React.FC = () => {
         await createMeeting(meetingId, `breakout-${meetingId}-${roomIndex}`, region)
       }
       catch (error) {
-        updateErrorMessage(error.message);
+        if (error instanceof Error) {
+          updateErrorMessage(error.message);
+        }
+        else {
+          throw error;
+        }
       }
     }
 

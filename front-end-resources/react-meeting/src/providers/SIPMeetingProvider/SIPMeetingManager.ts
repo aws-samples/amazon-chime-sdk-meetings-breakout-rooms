@@ -26,7 +26,11 @@ export class SIPMeetingManager {
       const joinToken = this.meetingData.JoinInfo.Attendee.JoinToken;
       return `sip:${AMAZON_CHIME_VOICE_CONNECTOR_PHONE_NUMDER}@${voiceConnectorId};transport=tls;X-joinToken=${joinToken}`;
     } catch (error) {
-      throw new Error(error);
+      if (error instanceof String) {
+        throw new Error(String(error));
+      } else {
+        throw error;
+      }
     }
   };
 }

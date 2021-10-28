@@ -34,7 +34,12 @@ const SIPMeeting: React.FC = () => {
         updateErrorMessage('Could not generate SIPURI');
       }
     } catch (error) {
-      updateErrorMessage(error.message);
+      if (error instanceof Error) {
+        updateErrorMessage(error.message);
+      }
+      else {
+        throw error;
+      }
     }
   };
 
