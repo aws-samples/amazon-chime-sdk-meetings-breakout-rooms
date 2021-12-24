@@ -13,12 +13,7 @@ else
     echo ""
     echo "INFO: cdk.context.json not present, nothing to remove"
 fi
-if [ ! -f "package-lock.json" ]; then
-    echo ""
-    echo "Installing Packages"
-    echo ""
-    npm install
-fi
+npm install
 if [ ! -d "front-end-resources/react-meeting/build" ]; then
     echo ""
     echo "Creating front-end-resources/react-meeting/build directory"
@@ -32,20 +27,15 @@ npm run build
 echo ""
 echo "Deploying Back End"
 echo ""
-cdk deploy MeetingBackEnd -O front-end-resources/react-meeting/src/cdk-outputs.json
+npx cdk deploy MeetingBackEnd -O front-end-resources/react-meeting/src/cdk-outputs.json
 echo ""
 echo "Building React App"
 echo ""
-cd front-end-resources/react-meeting
-if [ ! -f "package-lock.json" ]; then
-    echo ""
-    echo "Installing Packages"
-    echo ""
-    npm install --legacy-peer-deps
-fi
+pushd front-end-resources/react-meeting
+npm install --legacy-peer-deps
 npm run build
-cd -
+popd
 echo ""
 echo "Deploying Front End"
 echo ""
-cdk deploy MeetingFrontEnd
+npx cdk deploy MeetingFrontEnd
