@@ -79,7 +79,9 @@ const MeetingForm: React.FC = () => {
 
       history.push(routes.DEVICE);
     } catch (error) {
-      updateErrorMessage(error.message);
+      if (error instanceof Error) {
+        updateErrorMessage(error.message);
+      }
     }
   };
 

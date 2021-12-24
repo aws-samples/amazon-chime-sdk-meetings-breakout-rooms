@@ -42,7 +42,12 @@ const RegionSelection: React.FC<Props> = ({ setRegion, region }) => {
           setRegion((region: string) => region || nearestRegion);
         }
       } catch (e) {
-        console.error('Could not fetch nearest region: ', e.message);
+        if (e instanceof Error) {
+          console.error('Could not fetch nearest region: ', e.message);
+        }
+        else { 
+          throw e;
+        }
       }
     }
 
