@@ -7,7 +7,7 @@ import { useLocalAudioInputActivityPreview } from 'amazon-chime-sdk-component-li
 import ActivityBar from '../../ActivityBar';
 
 const MicrophoneActivityPreviewBar = () => {
-  const activityBarRef = useRef<HTMLDivElement>();
+  const activityBarRef = useRef<HTMLDivElement>(null);
   useLocalAudioInputActivityPreview(activityBarRef);
 
   return <ActivityBar ref={activityBarRef} />;
